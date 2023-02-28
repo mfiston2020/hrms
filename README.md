@@ -6,6 +6,6 @@
 after cloning this project you will have to run the following commands
 respectively
 
-- [composer install ]().
-- [cp .env.example .env]().
-- [php artisan key:generate]().
+- [composer install ]()
+- [cp .env.example .env]()
+- [php artisan key:generate]()
