@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('breadcumb','User Profile')
+
 @section('contents')
     <div class="content">
         <div class="container-fluid">
@@ -199,4 +201,3 @@
         </div>
     </div>
 @endsection
-

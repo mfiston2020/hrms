@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('breadcumb','Dashboard')
+
 @section('contents')
     <div class="content">
         <div class="container-fluid">
