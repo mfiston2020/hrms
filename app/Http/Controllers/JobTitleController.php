@@ -12,10 +12,19 @@ class JobTitleController extends Controller
     }
 
     function saveJobTitle(Request $request){
-        JobTitle::create([
-            'job_title_name'=>$request->title,
-            'description'=>$request->description,
-        ]);
+        // JobTitle::create([
+        //     'job_title_name'=>$request->title,
+        //     'description'=>$request->description,
+        // ]);
+
+        $jobTitle   =   new JobTitle();
+
+        $jobTitle->job_title_name   =   $request->title;
+        $jobTitle->description      =   $request->description;
+        $jobTitle->save();
+
+        // return $jobTitle->id;
+
         return redirect('/');
     }
 }
