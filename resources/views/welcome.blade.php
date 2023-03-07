@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@push('styles')
+
+@endpush
+
 @section('breadcumb','Dashboard')
 
 @section('contents')
@@ -12,20 +16,20 @@
                             <div class="row">
                                 <div class="col-xs-5">
                                     <div class="icon-big icon-warning text-center">
-                                        <i class="ti-server"></i>
+                                        <i class="fas fa-users"></i>
                                     </div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Capacity</p>
-                                        105GB
+                                        <p>Users</p>
+                                        {{ number_format($user_count) }}
                                     </div>
                                 </div>
                             </div>
                             <div class="footer">
                                 <hr />
                                 <div class="stats">
-                                    <i class="ti-reload"></i> Updated now
+                                    <i class="fas fa-wallet"></i> Updated now
                                 </div>
                             </div>
                         </div>
@@ -36,14 +40,16 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-xs-5">
-                                    <div class="icon-big icon-success text-center">
-                                        <i class="ti-wallet"></i>
+                                    <div class="icon-big icon-danger text-center">
+                                        <i class="fas fa-building-user"></i>
                                     </div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Revenue</p>
-                                        $1,345
+                                        <p>
+                                            Departments
+                                        </p>
+                                        ${{ number_format(29844) }}
                                     </div>
                                 </div>
                             </div>
@@ -62,12 +68,12 @@
                             <div class="row">
                                 <div class="col-xs-5">
                                     <div class="icon-big icon-danger text-center">
-                                        <i class="ti-pulse"></i>
+                                        <i class="fas fa-user-tie"></i>
                                     </div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Errors</p>
+                                        <p>Employees</p>
                                         23
                                     </div>
                                 </div>
@@ -87,12 +93,12 @@
                             <div class="row">
                                 <div class="col-xs-5">
                                     <div class="icon-big icon-info text-center">
-                                        <i class="ti-twitter-alt"></i>
+                                        <i class="fas fa-list"></i>
                                     </div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Followers</p>
+                                        <p>Job Titles</p>
                                         +45
                                     </div>
                                 </div>
@@ -182,3 +188,37 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="assets/js/bootstrap-checkbox-radio.js"></script>
+
+    <!--  Charts Plugin -->
+    <script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    <script src="assets/js/paper-dashboard.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            demo.initChartist();
+
+            // $.notify({
+            // 	icon: 'ti-gift',
+            // 	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+
+            // },{
+            //     type: 'success',
+            //     timer: 4000
+            // });
+
+        });
+    </script>
+@endpush
