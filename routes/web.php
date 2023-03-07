@@ -1,6 +1,8 @@
 <?php
 
 // use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\JobTitleController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class,'getAllUsers']);
+Route::get('/', [UserController::class,'getAllData']);
+Route::get('/jobTitle', [JobTitleController::class,'getAllJobTitle']);
+Route::post('/jobTitle/save', [JobTitleController::class,'saveJobTitle']);
 
 // Route::get('/', function () {
 //     return view('welcome');

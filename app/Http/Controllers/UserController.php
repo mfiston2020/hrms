@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Employee;
+use App\Models\JobTitle;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function getAllUsers(){
+    function getAllData(){
          return view('welcome',[
-            'users'=>User::all(),
+            'users'=>User::count(),
+            'job_titles'=>JobTitle::count(),
+            'employees'=>Employee::count(),
+            'departments'=>Department::count(),
             'user_count'=>User::count()
          ]);
         // return User::count();

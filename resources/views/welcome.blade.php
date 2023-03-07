@@ -49,7 +49,7 @@
                                         <p>
                                             Departments
                                         </p>
-                                        ${{ number_format(29844) }}
+                                        {{ number_format($departments) }}
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="col-xs-7">
                                     <div class="numbers">
                                         <p>Employees</p>
-                                        23
+                                        {{ number_format($employees) }}
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 <div class="col-xs-7">
                                     <div class="numbers">
                                         <p>Job Titles</p>
-                                        +45
+                                        {{ number_format($job_titles) }}
                                     </div>
                                 </div>
                             </div>

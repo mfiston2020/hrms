@@ -19,6 +19,12 @@
                     <p>Dashboard</p>
                 </a>
             </li>
+            <li class="{{ Request::is('jobTitle')?'active':'' }}">
+                <a href="/jobTitle">
+                    <i class="fas fa-list"></i>
+                    <p>Job Titles</p>
+                </a>
+            </li>
             <li class="{{ Request::is('user')?'active':'' }}">
                 <a href="/user">
                     <i class="ti-user"></i>
