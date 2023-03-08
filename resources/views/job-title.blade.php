@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-4">
                     <div class="card">
                         <div class="header">
                             <h4 class="title">Create Job Title</h4>
@@ -18,8 +18,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Title</label>
-                                            <input type="text" class="form-control border-input" name="title">
+                                            <label for="title">Title</label>
+                                            <input id="title" type="text" class="form-control border-input" name="job_title_name">
                                         </div>
                                     </div>
                                 </div>
@@ -27,8 +27,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea rows="5" class="form-control border-input" name="description"></textarea>
+                                            <label for="description">Description</label>
+                                            <textarea id="description" rows="5" class="form-control border-input" name="description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -37,6 +37,49 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Job Title List</h4>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>options</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($job_titles as $key=> $job_title)
+                                        <tr>
+                                            <td>{{$key+1}}</td>
+                                            <td> {{ $job_title->job_title_name }} </td>
+                                            <td> {{ $job_title->description }} </td>
+                                            <td>
+                                                <a href="" style="color:blue">edit</a> |
+                                                <a href="" style="color:red">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    {{-- @for ($i = 0; $i < count($job_titles); $i++)
+                                        <tr>
+                                            <td>{{$i+1}}</td>
+                                            <td> {{ $job_titles[$i]->job_title_name }} </td>
+                                            <td> {{ $job_titles[$i]->description }} </td>
+                                            <td>
+                                                <a href="" style="color:blue">edit</a> |
+                                                <a href="" style="color:red">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endfor --}}
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>

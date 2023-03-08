@@ -9,8 +9,8 @@ class JobTitle extends Model
 {
     use HasFactory;
 
-    // protected $fillable=[
-    //     'job_title_name',
-    //     'description',
-    // ];
+    protected $fillable=[
+        'job_title_name',
+        'description',
+    ];
 }
