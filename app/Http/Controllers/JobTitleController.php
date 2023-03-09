@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobTitle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class JobTitleController extends Controller
 {
@@ -31,6 +32,25 @@ class JobTitleController extends Controller
 
         // return $jobTitle->id;
 
+        return redirect()->back();
+    }
+
+    function editJobTitle($id){
+        return view('edit-job-title',[
+            'job_title'=>JobTitle::findOrFail(Crypt::decrypt($id))
+        ]);
+    }
+
+    function updateJobTitle(Request $request){
+        JobTitle::where('id',Crypt::decrypt($request->job_title_id))->update([
+                'job_title_name'    =>  $request->job_title_name,
+                'description'       =>  $request->description,
+            ]);
+        return redirect('/jobTitle');
+    }
+
+    function deleteJobTitle($id){
+        JobTitle::findOrFail(Crypt::decrypt($id))->delete();
         return redirect()->back();
     }
 }

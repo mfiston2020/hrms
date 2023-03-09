@@ -61,8 +61,17 @@
                                             <td> {{ $job_title->job_title_name }} </td>
                                             <td> {{ $job_title->description }} </td>
                                             <td>
-                                                <a href="" style="color:blue">edit</a> |
-                                                <a href="" style="color:red">Delete</a>
+                                                <a href="/jobTitle/edit/{{Crypt::encrypt($job_title->id)}}" style="color:blue">edit</a> |
+                                                <a href="#!" onclick="document.getElementById('delete-{{$job_title->id}}').submit()"
+                                                             style="color:red">Delete</a>
+                                                <form action="/jobTitle/delete/{{Crypt::encrypt($job_title->id)}}"
+                                                      method="post"
+                                                      onsubmit="return confirm('are you sure?')"
+                                                      id="delete-{{$job_title->id}}"
+                                                      >
+                                                      @csrf
+                                                      @method('DELETE')
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

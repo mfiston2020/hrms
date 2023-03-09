@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class,'getAllData']);
 Route::get('/jobTitle', [JobTitleController::class,'getAllJobTitle']);
 Route::post('/jobTitle/save', [JobTitleController::class,'saveJobTitle']);
+Route::post('/jobTitle/update', [JobTitleController::class,'updateJobTitle']);
+Route::get('/jobTitle/edit/{id}', [JobTitleController::class,'editJobTitle']);
+Route::delete('/jobTitle/delete/{id}', [JobTitleController::class,'deleteJobTitle']);
 
 // Route::get('/', function () {
 //     return view('welcome');
