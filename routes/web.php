@@ -18,17 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class,'getAllData']);
-Route::get('/jobTitle', [JobTitleController::class,'getAllJobTitle']);
-Route::post('/jobTitle/save', [JobTitleController::class,'saveJobTitle']);
-Route::post('/jobTitle/update', [JobTitleController::class,'updateJobTitle']);
-Route::get('/jobTitle/edit/{id}', [JobTitleController::class,'editJobTitle']);
-Route::delete('/jobTitle/delete/{id}', [JobTitleController::class,'deleteJobTitle']);
+Route::get('/', [UserController::class,'getAllData'])->middleware('auth');
+Route::get('/jobTitle', [JobTitleController::class,'getAllJobTitle'])->middleware('auth');
+Route::post('/jobTitle/save', [JobTitleController::class,'saveJobTitle'])->middleware('auth');
+Route::post('/jobTitle/update', [JobTitleController::class,'updateJobTitle'])->middleware('auth');
+Route::get('/jobTitle/edit/{id}', [JobTitleController::class,'editJobTitle'])->middleware('auth');
+Route::delete('/jobTitle/delete/{id}', [JobTitleController::class,'deleteJobTitle'])->middleware('auth');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/home', function () {
+    return redirect('/');
+});
 
 Route::get('/user', function () {
     return view('user');
-});
+})->middleware('auth');

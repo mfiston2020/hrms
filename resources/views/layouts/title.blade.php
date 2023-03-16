@@ -23,7 +23,8 @@
                         <li><a href="#">Notification 2</a></li>
                         <li><a href="#">Notification 3</a></li>
                         <li><a href="#">Notification 4</a></li>
-                        <li><a href="#">Another notification</a></li>
+                        <li><a href="#" onclick="document.getElementById('logout-form').submit()">Logout</a></li>
+                        <form action="/logout" id="logout-form" method="post">@csrf</form>
                       </ul>
                 </li>
             </ul>
